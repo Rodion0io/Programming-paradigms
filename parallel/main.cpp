@@ -1,6 +1,7 @@
 #include "iostream"
 #include "opencv2/opencv.hpp"
 #include "chrono"
+#include "immintrin.h"
 
 using namespace std;
 using namespace cv;
@@ -48,7 +49,6 @@ void contrast(Mat &image){
             Vec3b intensity = image.at<Vec3b>(y, x);
 
             for (int c = 0; c < 3; c++) {
-//                int new_intensity = alpha * intensity[c] + beta;
                 int new_intensity = factor * (intensity[c] - 128) + 128;
                 if (new_intensity < 0) {
                     intensity[c] = 0;
@@ -131,6 +131,14 @@ void contrastOmp(Mat &image){
 
 }
 
+void vectorizationMosaic(Mat &image){
+
+}
+
+void vectorizationContrast(Mat &image){
+
+}
+
 void init(){
     int photoNumber;
     int typeProcess;
@@ -139,7 +147,7 @@ void init(){
          "5. 950x950, " << "6. 2400x2400" << endl;
     cin >> photoNumber;
     cout << endl;
-    cout << "choose the type process:" << endl << "1: consistent " << "2: parallel" << endl;
+    cout << "choose the type process:" << endl << "1: consistent " << "2: parallel " << "3: vectorization "<< endl;
     cin >> typeProcess;
 
     if (photoNumber == 1) {
@@ -164,7 +172,7 @@ void init(){
 
             waitKey(0);
         }
-        else {
+        if (typeProcess == 2) {
             auto startMosaic = chrono::high_resolution_clock::now();
             mosaicOmp(image);
             auto endMosaic = chrono::high_resolution_clock::now();
@@ -173,6 +181,26 @@ void init(){
 
             auto startContrast = chrono::high_resolution_clock::now();
             contrastOmp(image);
+            auto endContrast = chrono::high_resolution_clock::now();
+            auto durationContrast = chrono::duration_cast<chrono::microseconds>(
+                    endContrast - startContrast).count();
+            cout << "duration time contrast" << " " << durationContrast << " " << "microsec." << endl;
+
+            imwrite("/Users/rodionrybko/CLionProjects/untitled1/parallel/result.png", image);
+
+            imshow("PythonBlyaaaaaaad", image);
+
+            waitKey(0);
+        }
+        else{
+            auto startMosaic = chrono::high_resolution_clock::now();
+            vectorizationMosaic(image);
+            auto endMosaic = chrono::high_resolution_clock::now();
+            auto durationMosaic = chrono::duration_cast<chrono::microseconds>(endMosaic - startMosaic).count();
+            cout << "duration time mosaic" << " " << durationMosaic << " " << "microsec." << endl;
+
+            auto startContrast = chrono::high_resolution_clock::now();
+            vectorizationContrast(image);
             auto endContrast = chrono::high_resolution_clock::now();
             auto durationContrast = chrono::duration_cast<chrono::microseconds>(
                     endContrast - startContrast).count();
@@ -207,7 +235,7 @@ void init(){
 
             waitKey(0);
         }
-        else {
+        if (typeProcess == 2) {
             auto startMosaic = chrono::high_resolution_clock::now();
             mosaicOmp(image);
             auto endMosaic = chrono::high_resolution_clock::now();
@@ -216,6 +244,26 @@ void init(){
 
             auto startContrast = chrono::high_resolution_clock::now();
             contrastOmp(image);
+            auto endContrast = chrono::high_resolution_clock::now();
+            auto durationContrast = chrono::duration_cast<chrono::microseconds>(
+                    endContrast - startContrast).count();
+            cout << "duration time contrast" << " " << durationContrast << " " << "microsec." << endl;
+
+            imwrite("/Users/rodionrybko/CLionProjects/untitled1/parallel/result.png", image);
+
+            imshow("PythonBlyaaaaaaad", image);
+
+            waitKey(0);
+        }
+        else{
+            auto startMosaic = chrono::high_resolution_clock::now();
+            vectorizationMosaic(image);
+            auto endMosaic = chrono::high_resolution_clock::now();
+            auto durationMosaic = chrono::duration_cast<chrono::microseconds>(endMosaic - startMosaic).count();
+            cout << "duration time mosaic" << " " << durationMosaic << " " << "microsec." << endl;
+
+            auto startContrast = chrono::high_resolution_clock::now();
+            vectorizationContrast(image);
             auto endContrast = chrono::high_resolution_clock::now();
             auto durationContrast = chrono::duration_cast<chrono::microseconds>(
                     endContrast - startContrast).count();
@@ -250,7 +298,7 @@ void init(){
 
             waitKey(0);
         }
-        else {
+        if (typeProcess == 2) {
             auto startMosaic = chrono::high_resolution_clock::now();
             mosaicOmp(image);
             auto endMosaic = chrono::high_resolution_clock::now();
@@ -259,6 +307,26 @@ void init(){
 
             auto startContrast = chrono::high_resolution_clock::now();
             contrastOmp(image);
+            auto endContrast = chrono::high_resolution_clock::now();
+            auto durationContrast = chrono::duration_cast<chrono::microseconds>(
+                    endContrast - startContrast).count();
+            cout << "duration time contrast" << " " << durationContrast << " " << "microsec." << endl;
+
+            imwrite("/Users/rodionrybko/CLionProjects/untitled1/parallel/result.png", image);
+
+            imshow("PythonBlyaaaaaaad", image);
+
+            waitKey(0);
+        }
+        else{
+            auto startMosaic = chrono::high_resolution_clock::now();
+            vectorizationMosaic(image);
+            auto endMosaic = chrono::high_resolution_clock::now();
+            auto durationMosaic = chrono::duration_cast<chrono::microseconds>(endMosaic - startMosaic).count();
+            cout << "duration time mosaic" << " " << durationMosaic << " " << "microsec." << endl;
+
+            auto startContrast = chrono::high_resolution_clock::now();
+            vectorizationContrast(image);
             auto endContrast = chrono::high_resolution_clock::now();
             auto durationContrast = chrono::duration_cast<chrono::microseconds>(
                     endContrast - startContrast).count();
@@ -293,7 +361,7 @@ void init(){
 
             waitKey(0);
         }
-        else {
+        if (typeProcess == 2) {
             auto startMosaic = chrono::high_resolution_clock::now();
             mosaicOmp(image);
             auto endMosaic = chrono::high_resolution_clock::now();
@@ -302,6 +370,26 @@ void init(){
 
             auto startContrast = chrono::high_resolution_clock::now();
             contrastOmp(image);
+            auto endContrast = chrono::high_resolution_clock::now();
+            auto durationContrast = chrono::duration_cast<chrono::microseconds>(
+                    endContrast - startContrast).count();
+            cout << "duration time contrast" << " " << durationContrast << " " << "microsec." << endl;
+
+            imwrite("/Users/rodionrybko/CLionProjects/untitled1/parallel/result.png", image);
+
+            imshow("PythonBlyaaaaaaad", image);
+
+            waitKey(0);
+        }
+        else{
+            auto startMosaic = chrono::high_resolution_clock::now();
+            vectorizationMosaic(image);
+            auto endMosaic = chrono::high_resolution_clock::now();
+            auto durationMosaic = chrono::duration_cast<chrono::microseconds>(endMosaic - startMosaic).count();
+            cout << "duration time mosaic" << " " << durationMosaic << " " << "microsec." << endl;
+
+            auto startContrast = chrono::high_resolution_clock::now();
+            vectorizationContrast(image);
             auto endContrast = chrono::high_resolution_clock::now();
             auto durationContrast = chrono::duration_cast<chrono::microseconds>(
                     endContrast - startContrast).count();
@@ -336,7 +424,7 @@ void init(){
 
             waitKey(0);
         }
-        else {
+        if (typeProcess == 2) {
             auto startMosaic = chrono::high_resolution_clock::now();
             mosaicOmp(image);
             auto endMosaic = chrono::high_resolution_clock::now();
@@ -345,6 +433,26 @@ void init(){
 
             auto startContrast = chrono::high_resolution_clock::now();
             contrastOmp(image);
+            auto endContrast = chrono::high_resolution_clock::now();
+            auto durationContrast = chrono::duration_cast<chrono::microseconds>(
+                    endContrast - startContrast).count();
+            cout << "duration time contrast" << " " << durationContrast << " " << "microsec." << endl;
+
+            imwrite("/Users/rodionrybko/CLionProjects/untitled1/parallel/result.png", image);
+
+            imshow("PythonBlyaaaaaaad", image);
+
+            waitKey(0);
+        }
+        else{
+            auto startMosaic = chrono::high_resolution_clock::now();
+            vectorizationMosaic(image);
+            auto endMosaic = chrono::high_resolution_clock::now();
+            auto durationMosaic = chrono::duration_cast<chrono::microseconds>(endMosaic - startMosaic).count();
+            cout << "duration time mosaic" << " " << durationMosaic << " " << "microsec." << endl;
+
+            auto startContrast = chrono::high_resolution_clock::now();
+            vectorizationContrast(image);
             auto endContrast = chrono::high_resolution_clock::now();
             auto durationContrast = chrono::duration_cast<chrono::microseconds>(
                     endContrast - startContrast).count();
@@ -379,7 +487,7 @@ void init(){
 
             waitKey(0);
         }
-        else {
+        if (typeProcess == 2) {
             auto startMosaic = chrono::high_resolution_clock::now();
             mosaicOmp(image);
             auto endMosaic = chrono::high_resolution_clock::now();
@@ -391,7 +499,27 @@ void init(){
             auto endContrast = chrono::high_resolution_clock::now();
             auto durationContrast = chrono::duration_cast<chrono::microseconds>(
                     endContrast - startContrast).count();
-            cout << "duration time contrast" << " " << durationContrast << " " << "microsec.microsec." << endl;
+            cout << "duration time contrast" << " " << durationContrast << " " << "microsec." << endl;
+
+            imwrite("/Users/rodionrybko/CLionProjects/untitled1/parallel/result.png", image);
+
+            imshow("PythonBlyaaaaaaad", image);
+
+            waitKey(0);
+        }
+        else{
+            auto startMosaic = chrono::high_resolution_clock::now();
+            vectorizationMosaic(image);
+            auto endMosaic = chrono::high_resolution_clock::now();
+            auto durationMosaic = chrono::duration_cast<chrono::microseconds>(endMosaic - startMosaic).count();
+            cout << "duration time mosaic" << " " << durationMosaic << " " << "microsec." << endl;
+
+            auto startContrast = chrono::high_resolution_clock::now();
+            vectorizationContrast(image);
+            auto endContrast = chrono::high_resolution_clock::now();
+            auto durationContrast = chrono::duration_cast<chrono::microseconds>(
+                    endContrast - startContrast).count();
+            cout << "duration time contrast" << " " << durationContrast << " " << "microsec." << endl;
 
             imwrite("/Users/rodionrybko/CLionProjects/untitled1/parallel/result.png", image);
 
