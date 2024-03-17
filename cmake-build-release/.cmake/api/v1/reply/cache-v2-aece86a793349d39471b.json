@@ -43,7 +43,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "Debug"
+			"value" : "Release"
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/rodionrybko/CLionProjects/untitled1/cmake-build-debug"
+			"value" : "/Users/rodionrybko/CLionProjects/untitled1/cmake-build-release"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/F79DC0C6-75FA-4979-8F71-F7F8808DCAAC/d/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake"
+			"value" : "/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/7DA9D264-49B1-40EB-B548-A0C46C9CDCF1/d/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/F79DC0C6-75FA-4979-8F71-F7F8808DCAAC/d/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cpack"
+			"value" : "/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/7DA9D264-49B1-40EB-B548-A0C46C9CDCF1/d/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -139,7 +139,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/F79DC0C6-75FA-4979-8F71-F7F8808DCAAC/d/CLion.app/Contents/bin/cmake/mac/aarch64/bin/ctest"
+			"value" : "/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/7DA9D264-49B1-40EB-B548-A0C46C9CDCF1/d/CLion.app/Contents/bin/cmake/mac/aarch64/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/rodionrybko/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/Users/rodionrybko/CLionProjects/untitled1/cmake-build-release/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -595,7 +595,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/F79DC0C6-75FA-4979-8F71-F7F8808DCAAC/d/CLion.app/Contents/bin/ninja/mac/aarch64/ninja"
+			"value" : "/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/7DA9D264-49B1-40EB-B548-A0C46C9CDCF1/d/CLion.app/Contents/bin/ninja/mac/aarch64/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -863,7 +863,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/F79DC0C6-75FA-4979-8F71-F7F8808DCAAC/d/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27"
+			"value" : "/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/7DA9D264-49B1-40EB-B548-A0C46C9CDCF1/d/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1151,7 +1151,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/rodionrybko/CLionProjects/untitled1/cmake-build-debug"
+			"value" : "/Users/rodionrybko/CLionProjects/untitled1/cmake-build-release"
 		},
 		{
 			"name" : "untitled1_IS_TOP_LEVEL",

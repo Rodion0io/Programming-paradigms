@@ -1,17 +1,4 @@
-/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/F79DC0C6-75FA-4979-8F71-F7F8808DCAAC/d/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/F79DC0C6-75FA-4979-8F71-F7F8808DCAAC/d/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/rodionrybko/CLionProjects/untitled1 -B /Users/rodionrybko/CLionProjects/untitled1/cmake-build-release
--- The C compiler identification is AppleClang 15.0.0.15000040
--- The CXX compiler identification is AppleClang 15.0.0.15000040
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Found OpenCV: /opt/homebrew/Cellar/opencv/4.9.0_4 (found version "4.9.0") 
--- Configuring done (1.1s)
+/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/7DA9D264-49B1-40EB-B548-A0C46C9CDCF1/d/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/7DA9D264-49B1-40EB-B548-A0C46C9CDCF1/d/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/rodionrybko/CLionProjects/untitled1 -B /Users/rodionrybko/CLionProjects/untitled1/cmake-build-release
+-- Configuring done (0.1s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Users/rodionrybko/CLionProjects/untitled1/cmake-build-release
