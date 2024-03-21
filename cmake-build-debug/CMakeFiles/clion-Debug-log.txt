@@ -1,4 +1,17 @@
-/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/5D870F09-40CB-4A7C-A265-AF777667A430/d/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/5D870F09-40CB-4A7C-A265-AF777667A430/d/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/rodionrybko/CLionProjects/untitled1 -B /Users/rodionrybko/CLionProjects/untitled1/cmake-build-debug
--- Configuring done (0.0s)
+/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/02571D69-7A60-4297-A00A-01E912A51A5C/d/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/private/var/folders/n0/6smflbps7wd_84z271yb44z00000gn/T/AppTranslocation/02571D69-7A60-4297-A00A-01E912A51A5C/d/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/rodionrybko/CLionProjects/untitled1 -B /Users/rodionrybko/CLionProjects/untitled1/cmake-build-debug
+-- The C compiler identification is AppleClang 15.0.0.15000040
+-- The CXX compiler identification is AppleClang 15.0.0.15000040
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found OpenCV: /opt/homebrew/Cellar/opencv/4.9.0_5 (found version "4.9.0") 
+-- Configuring done (10.0s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Users/rodionrybko/CLionProjects/untitled1/cmake-build-debug

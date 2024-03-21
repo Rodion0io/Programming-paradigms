@@ -42,26 +42,25 @@ void mosaic(Mat &image){
 
 void contrast(Mat &image){
 
-    double factor = (259.0 * (-100.0 + 255.0)) / (255.0 * (259.0 - (-100.0)));
+    double factor = (100.0 + (-100.0)) / 100.0;
+    factor *= factor;
 
-    for (int y = 0; y < image.rows; y++) {
-        for (int x = 0; x < image.cols; x++) {
-            Vec3b intensity = image.at<Vec3b>(y, x);
-
-            for (int c = 0; c < 3; c++) {
-                int new_intensity = factor * (intensity[c] - 128) + 128;
-                if (new_intensity < 0) {
-                    intensity[c] = 0;
+    for (int i = 0; i < image.rows; i++){
+        for (int j = 0; j < image.cols; j++){
+            for (int x = 0; x < 3; x++){
+                double intensity = image.at<Vec3b>(i, j)[x] / 255.0;
+                intensity -= 0.5;
+                intensity *= factor;
+                intensity += 0.5;
+                intensity *= 255;
+                if (intensity < 0){
+                    intensity = 0;
                 }
-                else if (new_intensity > 255) {
-                    intensity[c] = 255;
+                if (intensity > 255){
+                    intensity = 255;
                 }
-                else {
-                    intensity[c] = new_intensity;
-                }
+                image.at<Vec3b>(i,j)[x] = saturate_cast<unsigned char >(intensity);
             }
-
-            image.at<Vec3b>(y, x) = intensity;
         }
     }
 
@@ -104,40 +103,91 @@ void mosaicOmp(Mat &image){
 
 void contrastOmp(Mat &image){
 
-    double factor = (259.0 * (-100.0 + 255.0)) / (255.0 * (259.0 - (-100.0)));
+    double factor = (100.0 + (-100.0)) / 100.0;
+    factor *= factor;
 
 #pragma omp parallel for
-    for (int y = 0; y < image.rows; y++) {
-        for (int x = 0; x < image.cols; x++) {
-            Vec3b intensity = image.at<Vec3b>(y, x);
-
-            for (int c = 0; c < 3; c++) {
-//                int new_intensity = alpha * intensity[c] + beta;
-                int new_intensity = factor * (intensity[c] - 128) + 128;
-                if (new_intensity < 0) {
-                    intensity[c] = 0;
+    for (int i = 0; i < image.rows; i++){
+        for (int j = 0; j < image.cols; j++){
+            for (int x = 0; x < 3; x++){
+                double intensity = image.at<Vec3b>(i, j)[x] / 255.0;
+                intensity -= 0.5;
+                intensity *= factor;
+                intensity += 0.5;
+                intensity *= 255;
+                if (intensity < 0){
+                    intensity = 0;
                 }
-                else if (new_intensity > 255) {
-                    intensity[c] = 255;
+                if (intensity > 255){
+                    intensity = 255;
                 }
-                else {
-                    intensity[c] = new_intensity;
-                }
+                image.at<Vec3b>(i,j)[x] = saturate_cast<unsigned char >(intensity);
             }
-
-            image.at<Vec3b>(y, x) = intensity;
         }
     }
 
 }
 
-void vectorizationMosaic(Mat &image){
 
+struct Pixeles{
+    unsigned char b;
+    unsigned char g;
+    unsigned char r;
+};
+
+void vectorizationMosaic(Mat &image){
+    int sizeBlock = 7;
+    int width = image.cols;
+    int height = image.rows;
+
+    for (int i = 0; i < image.rows; i += sizeBlock){
+        for (int j = 0; j < image.cols; j += sizeBlock){
+            __m128i colors = _mm_setzero_si128();
+            int count = 0;
+            for (int y = i; y < min(i + sizeBlock, height); y++){
+                for (int x = j; x < min(j + sizeBlock, width); x++){
+                    Pixeles arr = image.at<Pixeles>(y,x);
+                    colors = _mm_add_epi32(colors, _mm_set_epi32(arr.b, arr.g, arr.r, 0));
+                    count++;
+                }
+            }
+            __m128i averageColor = _mm_div_epi32(colors, _mm_set1_epi32(count));
+            unsigned char rgb[4];
+            _mm_storeu_epi32(rgb, averageColor);
+            Pixeles newColor = {rgb[3], rgb[2], rgb[1]};
+            for (int y = i; y < min(i + sizeBlock, height); y++){
+                for (int x = j; x < min(j + sizeBlock, width); x++) {
+                    Pixeles arr = image.at<Pixeles>(y,x) = newColor;
+                }
+            }
+        }
+    }
 }
 
 void vectorizationContrast(Mat &image){
+    double factor = (259.0 * (-100.0 + 255.0)) / (255.0 * (259.0 - (-100.0)));
 
+    for (int y = 0; y < image.rows; y++){
+        for (int x = 0; x < image.cols; x++){
+            __m128i colors = _mm_setr_epi32(image.ptr<int>(y,x)[0],image.ptr<int>(y,x)[1],image.ptr<int>(y,x)[2],image.ptr<int>(y,x)[3]);
+            colors = _mm_cvtepu8_epi32(colors);
+            __m256d pixelData = _mm256_cvtepi32_pd(colors);
+            pixelData = _mm256_div_pd(pixelData, _mm256_set1_pd(255.0));
+            pixelData = _mm256_sub_pd(pixelData, _mm256_set1_pd(0.5));
+            pixelData = _mm256_mul_pd(pixelData, _mm256_set1_pd(factor));
+            pixelData = _mm256_add_pd(pixelData, _mm256_set1_pd(0.5));
+            pixelData = _mm256_mul_pd(pixelData, _mm256_set1_pd(255.0));
+
+            double values[4];
+            _mm256_storeu_pd(values, pixelData);
+            image.at<Vec3b>(y,x) = {static_cast<unsigned char>(values[0]),
+                                    static_cast<unsigned char>(values[1]),
+                                    static_cast<unsigned char>(values[2])}
+        }
+    }
 }
+
+
 
 void init(){
     int photoNumber;

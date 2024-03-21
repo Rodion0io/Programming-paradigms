@@ -1,4 +1,6 @@
 # ninja log v5
 1876	1939	1710676298430289186	untitled1	126f467fb799db7c
-0	89	1710692452182651747	build.ninja	ce9d548a3301fa2a
+0	89	1711028200232565450	build.ninja	ce9d548a3301fa2a
 10	1875	1710676298362548195	CMakeFiles/untitled1.dir/parallel/main.cpp.o	272a427d4a7bfee7
+33	1965	1710749964346462539	CMakeFiles/untitled1.dir/Functional/functions.cpp.o	a083eb2c4a32fa39
+22	3763	1711037336304660432	CMakeFiles/untitled1.dir/Functional/functions.cpp.o	a083eb2c4a32fa39
