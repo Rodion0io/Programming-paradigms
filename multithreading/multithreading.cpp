@@ -82,5 +82,4 @@ int main() {
         t.join();
     }
 
-    return 0;
 }
